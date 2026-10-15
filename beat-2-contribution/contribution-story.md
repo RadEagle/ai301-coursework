@@ -8,9 +8,8 @@ format criteria grade exactly that. Your course repo link is the whole submissio
 files and no evidence uploads are part of Assignment 5.
 
 **Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
+**Student:** Jonathan Chau
+**GitHub Username:** RadEagle
 **Issue:** [GitHub issue link]
 **Pull Request:** [GitHub PR link, once opened]
 
@@ -55,10 +54,9 @@ happened; these entries are the toolkit's own timeline.
 All four entries are graded. Keep every heading below, and fill each
 one in the week it belongs to.
 
-**Unit 5: [one line on the tool work]**
+**Unit 5: Scouting for Issues**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+This unit, I built an AI agent skill that scouts issues for me using GitHub search filters. Unfortunately, due to the poor formatting of the fit profile, Claude complained and had to assume a few filters, such as narrowing the language down to Python and prioritizing the search over the fit profile (e.g., I forgot to put "Chemistry" and "Quantum" into the fit profile so claude had to infer from the query from the search strategy). So, I made sure the fit profile is updated and split the queries into multiple queries, one per language.
 
 **Unit 6: [one line on the tool work]**
 
