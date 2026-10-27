@@ -58,11 +58,15 @@ one in the week it belongs to.
 
 This unit, I built an AI agent skill that scouts issues for me using GitHub search filters. Unfortunately, due to the poor formatting of the fit profile, Claude complained and had to assume a few filters, such as narrowing the language down to Python and prioritizing the search over the fit profile (e.g., I forgot to put "Chemistry" and "Quantum" into the fit profile so claude had to infer from the query from the search strategy). So, I made sure the fit profile is updated and split the queries into multiple queries, one per language.
 
-**Unit 6: [one line on the tool work]**
+**Unit 6: Voice Guard and Memory File**
 
 [2-4 sentences: the voice-guard, the repo-memory file. What broke or
 fell short, and what changed because of it. "Nothing broke" counts when
 it is true - say how you know.]
+
+For the voice guard, nothing broke. I know this because I tested my draft claim comment on the voice guard and it told me it is ready to post.
+
+For the repo-memory file, nothing broke there as well. I ran the scoped orientation command regarding the issue and provided me with useful information I can put into the template. There are no instructions revolving around commits, branches, and AI policy.
 
 **Unit 7: [one line on the tool work]**
 
