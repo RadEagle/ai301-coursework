@@ -1,0 +1,3 @@
+I'd like to take this. My plan is to add two QShortcuts in `avogadro/mainwindow.cpp`, next to the existing Ctrl+Tab shortcuts (~line 635). I see that this feature doesn't exist for 2.0.0 using Windows (WSL), but haven't checked the latest release, v2.1.0, yet. Will get around to writing a rough implementation plan once I've confirmed it doesn't exist for the latest release.
+
+I noticed that this repo does not have a clause dictating AI use, but its sister repo, `avogadrolibs`, restricts AI use to levels 0 and 1 according to Dan Shapiro's 5 levels of AI coding tools. Is AI-assisted code accepted here, and if so, at what level?

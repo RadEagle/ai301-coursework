@@ -38,35 +38,14 @@ your own; these values belong to nobody):
 gh search issues --label "good first issue" --language python --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
 -->
 
-<!-- Look for open chemistry or quantum or kanji or kanji issues in the Python language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language python --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
+<!-- Languages: "I want to engage in issues in Python, TypeScript, React, PostgreSQL, and MATLAB. I want to get better at Go, Rust, Ruby, and C++."
+Topics: "The project area I want to work on should revolve around chemistry, quantum physics, mathematics, japanese kanji, and signal processing."
+GitHub allows at most 5 AND/OR/NOT per query, so the keywords are split into two groups. Edit the language list or a keyword group in one place.
+"-linked:pr" drops issues that already have a linked pull request; it must stay its own argument after "--", because inside the "language:$lang" string it breaks the language filter. -->
 
-<!-- Look for open chemistry or quantum or kanji issues in the TypeScript language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language typescript --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
+for lang in python typescript sql plpgsql tsx matlab go rust ruby c++; do gh search issues --label "good first issue" --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url -- chemistry OR molecule OR quantum OR kanji "language:$lang" "-linked:pr"; done
 
-<!-- Look for open chemistry or quantum or kanji issues in SQL -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language sql --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in PostgreSQL -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language plpgsql --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in React -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language tsx --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in the MATLAB language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language matlab --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in the Go language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language go --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in the Rust language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language rust --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in the Rube language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language ruby --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
-
-<!-- Look for open chemistry or quantum or kanji issues in the C++ language -->
-gh search issues chemistry OR quantum OR kanji --label "good first issue" --language c++ --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url
+for lang in python typescript sql plpgsql tsx matlab go rust ruby c++; do gh search issues --label "good first issue" --state open --limit 100 --json title,repository,labels,assignees,commentsCount,updatedAt,url -- math OR "signal processing" OR FFT "language:$lang" "-linked:pr"; done
 
 ## Ranking filters
 
@@ -81,9 +60,11 @@ your ordering. Example SHAPES (write your own):
 
 - drop any result with an assignee
 - drop any result not updated in the last 30 days
+- strongly prefer issues where code changes are needed over documentation changes (docs = a `documentation`/`docs` label, or a title starting with "docs")
+- prefer issues from repos with a moderate amount of stars (100-1000 stars, from the one star-count lookup per repo)
 - prefer fewer comments over more
-- prefer issues that easier to fix first (2 files or less, if called out)
-- prefer issues from repos with more stars first (1000+ stars)
+- tie-break: prefer the most recently updated
+- keep at most one issue per repo (its highest-ranked one)
 
 ## How many to grade
 

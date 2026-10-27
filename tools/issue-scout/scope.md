@@ -44,4 +44,4 @@ accepts. -->
 
 I want to engage in issues in Python, TypeScript, React, PostgreSQL, and MATLAB. I want to get better at Go, Rust, Ruby, and C++. Avoid Java, Angular, Kubernetes, R, and COBOL.
 
-The project area I want to work on should revolve around chemistry, quantum physics, mathematics, and japanese kanji.
+The project area I want to work on should revolve around chemistry, quantum physics, mathematics, japanese kanji, and signal processing.

@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: Add F6 / Shift+F6 to move keyboard focus between docks and the 3D view
 
 Path: `beat-2-contribution/contribution-story.md`
 
@@ -10,7 +10,7 @@ files and no evidence uploads are part of Assignment 5.
 **Contribution Number:** [1]
 **Student:** Jonathan Chau
 **GitHub Username:** RadEagle
-**Issue:** [GitHub issue link]
+**Issue:** https://github.com/OpenChemistry/avogadroapp/issues/910
 **Pull Request:** [GitHub PR link, once opened]
 
 One repository, built across units 5 to 8, telling the whole story of your real
@@ -88,6 +88,14 @@ wild search and what you changed or would change, or what convinced
 you it held up. **Record the link to your claim comment in this section too.**
 Not claimed yet? Write `claim pending` and today's date where the link goes,
 and add the link the moment your claim lands.]
+
+I chose this issue because it comes from a repository that revolves around the field of chemistry while also being a straightforward issue to resolve. I ran this issue through my issue-scout skill and it came back as "accept" with a difficulty of "straightforward". Even though the actual issue isn't related to Chemistry, having this be my first open-source issue will help build rapport amongst the maintainers of this repo. The scout didn't do half bad, to be fair. It helped assess the scope of the issues it ranked, even though it had no control over the top 5 issues selected for the agent. Many times, it kept scoring four issues from the same repository with 3 stars.
+
+As for searching for the issue itself, it was a migraine to go through. I initially had ten search queries, one per language. That meant if I wanted to add in another field of interest, like Japanese, then I have to go through all 10 queries and update them with 1 word each. Still, none of the issues were of the right scope, and some of them were even rejected by the issue scout, largely because the ranking filters didn't work as expected. I updated the rankings, but still no issues that satisfy what I wanted to do. I eventually gave up and handed my search queries to Claude to make searching simpler, as it added a python loop to iterate through each language in two queries intead of 10. Thankfully, I found an issue where my issue-scout accepted it and ranked it as straightforward, rather than ambitious, even though it is an enhancement.
+
+
+Link to claim comment: https://github.com/OpenChemistry/avogadroapp/issues/910#issuecomment-6423134887
+
 
 **Toolkit**
 

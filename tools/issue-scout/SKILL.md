@@ -48,8 +48,11 @@ costs model time and runs last, on exactly the survivors.
    the point of this stage, the filters do the narrowing. Combine
    the results of all queries and drop duplicates.
 3. **Rank cheaply.** Apply the strategy's ranking filters to the
-   combined results using ONLY the fields search already returned
-   plus the fit profile in `scope.md`. No model judgment calls, no
+   combined results using ONLY the fields search already returned,
+   the fit profile in `scope.md`, and one exception: a single
+   star-count lookup per unique repo (`gh api repos/OWNER/REPO
+   --jq .stargazers_count`), because search results carry no star
+   counts and the lookup is cheap and mechanical. No model judgment calls, no
    fetching issue pages, no reading threads: if a filter needs
    evidence the result fields do not carry, it belongs in the rubric,
    not the ranking. Order the survivors and take the top N the

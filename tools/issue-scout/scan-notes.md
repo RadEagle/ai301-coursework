@@ -7,3 +7,13 @@ Strategy edit: added thresholds to the two preference filters ("2 files or less,
   - stars: put `stars:>=1000` inside each query (GitHub issue search accepts repo qualifiers like this; check that `gh search issues` passes it through), or drop the filter, since the rubric already grades "Repo is popular".
   - file count: move it to the rubric as a preferred check ("issue names 2 or fewer files"). Only the issue body can show it.     
 - The tie-break is still missing. Fix that first: 10 results tied at 0 comments decide the whole top 5.
+
+## 10/22/2026:
+* In `rubric.md` replaced the checks `Issue is not an umbrella` and `Issue is small` with `scope-feasible`.
+* In `rubric.md`, added a difficulty note for accepted issues.
+* In `rubric.md`, updated the `Issue is popular` check to `Issue is moderately popular`
+
+## 10/23/2026:
+* In `search-strategy.md`, condensed queries into one query spanning 10 languages to simplify adding interests.
+* In `search-strategy.md`, gave Claude the keys to condense search queries by adding Python loops.
+* In `scope.md`, added more interests like "signal" and "voice"
