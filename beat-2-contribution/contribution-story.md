@@ -60,10 +60,6 @@ This unit, I built an AI agent skill that scouts issues for me using GitHub sear
 
 **Unit 6: Voice Guard and Memory File**
 
-[2-4 sentences: the voice-guard, the repo-memory file. What broke or
-fell short, and what changed because of it. "Nothing broke" counts when
-it is true - say how you know.]
-
 For the voice guard, nothing broke. I know this because I tested my draft claim comment on the voice guard and it told me it is ready to post.
 
 For the repo-memory file, nothing broke there as well. I ran the scoped orientation command regarding the issue and provided me with useful information I can put into the template. There are no instructions revolving around commits, branches, and AI policy.
@@ -82,17 +78,6 @@ drafted, what you did with the draft.]
 
 ## Why I Chose This Issue
 
-[1-2 paragraphs in your own words: how you searched, what your scan
-surfaced, what your scout's verdict said, why this issue fits your
-profile, and what you hope to learn. If your scout's verdict on it
-was reject and you chose it anyway, say so here and say why; choosing
-against your own tool silently is what loses points. Close with an
-honest read of the tool itself: where the scout fell short on a real
-wild search and what you changed or would change, or what convinced
-you it held up. **Record the link to your claim comment in this section too.**
-Not claimed yet? Write `claim pending` and today's date where the link goes,
-and add the link the moment your claim lands.]
-
 I chose this issue because it comes from a repository that revolves around the field of chemistry while also being a straightforward issue to resolve. I ran this issue through my issue-scout skill and it came back as "accept" with a difficulty of "straightforward". Even though the actual issue isn't related to Chemistry, having this be my first open-source issue will help build rapport amongst the maintainers of this repo. The scout didn't do half bad, to be fair. It helped assess the scope of the issues it ranked, even though it had no control over the top 5 issues selected for the agent. Many times, it kept scoring four issues from the same repository with 3 stars.
 
 As for searching for the issue itself, it was a migraine to go through. I initially had ten search queries, one per language. That meant if I wanted to add in another field of interest, like Japanese, then I have to go through all 10 queries and update them with 1 word each. Still, none of the issues were of the right scope, and some of them were even rejected by the issue scout, largely because the ranking filters didn't work as expected. I updated the rankings, but still no issues that satisfy what I wanted to do. I eventually gave up and handed my search queries to Claude to make searching simpler, as it added a python loop to iterate through each language in two queries intead of 10. Thankfully, I found an issue where my issue-scout accepted it and ranked it as straightforward, rather than ambitious, even though it is an enhancement.
@@ -103,11 +88,10 @@ Link to claim comment: https://github.com/OpenChemistry/avogadroapp/issues/910#i
 
 **Toolkit**
 
-- Tool: issue-scout (your scout: your search strategy, your rubric),
-  and how you used it
-- What it produced: [the scan and its verdict on this issue, described]
-- Difficulties: [where it fell short, or "none met" if none did]
-- What changed: [what you patched or would update, or "nothing"]
+- Tool: issue-scout (rubric kept consistent for simplicity. search strategy involved encompassing multiple languages and interests, with one interest added should the issues that pull up are unsatisfactory.)
+- What it produced: The scan told me this issue is a good fit as I want to improve in C++ while also working around a chemistry software. Its verdict is "accept" and labeled its difficulty as "straightforward" because it names the file to fix directly.
+- Difficulties: kept grading issues that are either rejected, ambitious, poor fit, and from repos with less than a hundred stars.
+- What changed: Ended up letting Claude make loops on search queries to simplify search, and adjusted the ranking filter to what actually works, like a moderate amount of stars, actual code issues over documentation, and prefer at most one issue per repo.
 
 ---
 
@@ -147,26 +131,55 @@ the relevant versions (language, runtime, package manager, the project
 itself), and how you set the project up. Then the challenges you faced
 and how you solved them, or that none came up.]
 
+I'm using the latest version (2.1.0, 77e13db) on Windows (WSL). I followed the setup instructions according to its [development guide](https://avogadro.cc/develop/build.html#develop-build) using a Cursor terminal and had its AI help me install the missing libraries and submodules as I haven't contributed in C++ before. The only challenge with setting this up is that the build took hours to finish, though after that any subsequent updates to the core libraries takes about 10 minutes to build. During the build I spent my time working on other tasks and catching up on my free time while waiting for the build to finish.
+
+### Setup Instructions
+1. Fork the upstream `avogadroapp` repo into your own repo
+2. Clone the repo according to the instructions outlined [here](https://avogadro.cc/develop/build.html#manual-clone)
+    ```bash
+    git clone https://github.com/OpenChemistry/openchemistry.git
+    cd openchemistry
+    git clone https://github.com/OpenChemistry/avogadrolibs.git
+    git clone https://github.com/[YOUR_GITHUB_USERNAME]/avogadroapp.git
+    git -C avogadroapp checkout 2.1.0
+    git -C avogadrolibs checkout 2.1.0
+    ```
+3. Follow the setup instructions outlined [here](https://avogadro.cc/develop/build.html#building-avogadro)
+    * Perform these commands in the directory named `openchemistry`
+    ```bash
+    git submodule update --init thirdparty/jkqtplotter
+    git submodule update --init fragments molecules crystals avogadro-i18n
+    ```
+
+    * Perform these commands in the parent directory of `openchemistry`
+    ```
+    sudo apt update
+    sudo apt install qt6-base-dev qt6-svg-dev libgl1-mesa-dev
+    sudo apt install libxml2-dev
+    sudo apt install libglu1-mesa-dev
+    cmake -DQT_VERSION=6 -DBUILD_MOLEQUEUE=OFF -S ./openchemistry -B ./build
+    cmake --build ./build
+    ./build/prefix/bin/avogadro2
+    ```
+
 **Steps to Reproduce**
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. With the app opened, click on the black display box.
+2. Try to cycle focus through visible docks using any key (e.g., F6 and Shift+F6)
+    * Because this feature is not implemented yet, there is no way to achieve the desired behavior.
 
 **Reproduction Evidence**
 
-- **Commit showing reproduction:** [link to commit in your fork]
-- **Screenshots/logs:** [if applicable]
-- **My findings:** [what you discovered during reproduction; an
-  honest, evidenced cannot-reproduce that led you to re-pick or ask
-  the maintainer belongs here and costs you nothing]
+- **Commit showing reproduction:** https://github.com/RadEagle/avogadroapp/commit/77e13db9f6263cf86768169298812cb8c3674d1f
+- **Screenshots/logs:** N/A, this is a feature request
+- **My findings:** During reproduction, I ensured the shortcut to cycle focus through visible panes doesn't exist and the F6 key didn't do anything as well. While playing around the app, I discovered there is an extra pane worth mentioning, the Z-Matrix Editor, that is hidden by default. I'm asking the maintainer about whether to include this pane in scope and where to find it.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: repro-check
+- What it produced: Claim draft and repro-report both accepted
+- Difficulties: Having to thank the maintainer, trimming/re-adding reproduction steps, and GitHub markdown issues
+- What changed: Modified opening line to thank maintainer, settled for using upstream repo to reproduce, and settled for using numbers for sub-items over letters.
 
 ---
 
