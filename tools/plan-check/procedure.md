@@ -27,7 +27,7 @@ is a step; "understand the context" is a wish.
 what to note down from each part while reading. A complete procedure
 decides the order (issue first? repro evidence first?) and says why
 the order matters for the checks that come later. -->
-Read the issue at hand first. Then read any thread highlights to supplement the issue. After that, read the repro report that the issue is present. Finally, read the candidate plan and the candidate plan comment to see if they align with the rest of the gathered information.
+Read `scope.md` first to decide if the issue should be read. Then read the issue at hand. If the issue is out of scope, stop. Then read any thread highlights to supplement the issue. After that, read the repro report that the issue is present. Finally, read the candidate plan and the candidate plan comment to see if they align with the rest of the gathered information.
 
 ## Evidence gathering
 

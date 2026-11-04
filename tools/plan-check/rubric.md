@@ -51,11 +51,12 @@ family will fail eval packages designed around that family.
 | Changes in-scope are bounded | Issue behavior, expected behavior, actual behavior, proposed changes | 
 All of the proposed changes listed contribute to fixing the actual or issue behavior to the expected behavior | required |
 | Diagnosis aligns with evidence | Diagnosis, repro evidence | The diagnosis does not contradict with the repro evidence. For example, if the repro evidence rules out a null check issue, but blames the null check, it is not a pass. | required |
-| Steps are unambiguous | Plan steps | The steps are confident and can be followed without asking any questions | required |
+| Steps are unambiguous | Test steps | The steps are confident and can be followed without asking any questions | required |
 | Test plan is specific | Test plan, Expected outcome | The test plan should describe the outcome, not something generic like "nothing should be broken" | required |
 | Comments follow AI policy | AI Contributing, Plan comment | Either no AI policy on commenting is present or plan comment explicity mentions it is written in their own words or is human-made | required |
 | Issue is fixable | Unsolvable comment | No unsolvable comment is present | required |
 | Plan complies with thread | Thread highlights, candidate plan | The plan does not ignore the thread highlights made by the maintainer and follows through on what it says. Automatic pass if there are no thread highlights. | required |
+| Handles unanswered questions | Unanswered questions, candidate plan | If there is an unanswered question, the candidate plan addresses it. If there are no unanswered questions, the check will pass. | required |
 
 ## Verdict rule
 

@@ -99,26 +99,29 @@ Link to claim comment: https://github.com/OpenChemistry/avogadroapp/issues/910#i
 
 **Problem Description**
 
-[In your own words, what is broken or missing?]
+The `avogadroapp` is missing accessibility features that allow keyboard users to quickly cycle focus between visible panes and the 3D view.
 
 **Expected Behavior**
 
-[What should happen?]
+A shortcut exists that cycles through visible docks and 3D view.
 
 **Current Behavior**
 
-[What actually happens?]
+No shortcut exists that achieves expected behavior.
 
 **Affected Components**
 
-[Which parts of the codebase are involved?]
+Two files inside the `avogadro` folder are affected:
+
+* `mainwindow.cpp`
+* `mainwindow.h`
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: repro-check
+- What it produced: No issues, ready to post
+- Difficulties: None
+- What changed: None
 
 ---
 
@@ -187,29 +190,80 @@ I'm using the latest version (2.1.0, 77e13db) on Windows (WSL). I followed the s
 
 **Analysis**
 
-[Your analysis of the root cause: what is causing the issue, traced
-to the files and functions involved.]
+The root cause is that there is no function that allows keyboard users to cycle through the visible panes in the first place.
 
 **Proposed Solution**
 
-[High-level description of your fix approach, and what you are
-deliberately NOT changing.]
+The fix approach involves creating two `QShortcut`s in `avogadro/mainwindow.cpp`, `F6` to cycle forward focus across the 3D view and visible panes, and `Shift + F6` to cycle backwards. Each `QShortcut` links to a C++ function, which means I need to also create two functions in `avogadro/mainwindow.cpp` as well as declare them in `avogadro/mainwindow.h`.
+
+These new shortcuts will be linked to their respective new functions named below:
+
+* `F6` -> `focusNextPane`
+* `Shift + F6` -> `focusPreviousPane`
+
+Here is how the new function `focusNextPane` will be implemented:
+
+1. Construct a list of panes that are **visible** and **not floating**, listed in the following order:
+    1. 3D view: `m_multiViewWidget->activeWidget()`
+    2. Tool Settings: `m_toolDock`
+    3. Display Types: `m_sceneDock`
+    4. Display Type Settings: `m_viewDock`
+    5. Molecules List: `m_moleculeDock`
+    6. Layers: `m_layerDock`
+2. If there is only 1 visible pane, return
+3. Find which pane in the visible list contains `QApplication::focusWidget()`
+4. If there is no pane that has the focus widget, default focus to the 3D view
+5. Otherwise, do the following
+    1. Get the index of the selected pane
+    2. `setFocus()` on the next pane's first focusable child
+
+The function `focusPreviousPane` will be implemented similarly, except we will cycle through the visible panes similar to what `previousMolecule` did. That is, after getting the index, decrement by one, increment by the number of visible panes, then take the remainder after dividing by said number of visible panes.
+
+I will change nothing else in this repo.
 
 **Implementation Plan**
 
-1. [Modify file X to do Y]
-2. [Add or change Z]
-3. [Update tests]
+1. Add two `QShortcuts` for `F6` and `Shift + F6` to live next to the `Ctrl + Tab` shortcuts at `avogadro/mainwindow.cpp:635`
+2. Create two functions, `focusNextPane` and `focusPreviousPane`, according to the Proposed Solution above. They should live near where `nextMolecule` and `previousMolecule` are implemented.
+3. Declare these two functions at `avogadro/mainwindow.h`, next to where `nextMolecule` and `previousMolecule` are declared.
 
-[Record deviations here as they happen: what changed mid-build and
-why. A recorded deviation is honest work; silent drift is not.]
+Note: There are no tests associated with the `QShortcut`s directly, so I will not add tests unless directed as it solves an accessibility issue.
+
+
+**Deviations**
+
+Cycling focus to the Z-Matrix Editor will be out of scope for now because the code lives in a `qtplugin`, not `mainwindow.cpp` where it defines the scope of the issue.
+
+**Test Plan**
+
+1. Cycle normally with `F6`
+    1. Verify that you see the molecules list visible and not layers.
+    2. Click on the title bar.
+    3. Hit `F6`
+    4. Hit the left and right arrow keys
+    5. See that the molecule rotates
+    6. Hit `F6` again
+    7. See that the focus switches from the 3D view to the tools pane, and then display types, etc.
+    8. Repeat the same steps with the layers pane visible.
+2. Cycle backwards normally with `Shift + F6`
+    1. Verify that you see the molecules list visible and not layers.
+    2. Click on the title bar.
+    3. Hit `Shift + F6`
+    4. Hit the left and right arrow keys
+    5. See that the molecule rotates
+    6. Hit `Shift + F6` again
+    7. See that the focus switches from the 3D view to the molecules list, and then display type settings, etc.
+    8. Repeat the same steps with the layers pane visible.
+
+**AI Use**
+The new code will be LLM generated according to the plan I wrote above, but I will review it line-by-line before opening a pull request.
 
 **Toolkit**
 
-- Tool:
-- What it produced:
-- Difficulties:
-- What changed:
+- Tool: plan-check
+- What it produced: reject due to unanswered questions, lack of a test plan, and lack of an AI line. Lots of rubric gaps that unit 3 did not account for, including evidence guide comment file name, ambiguity of "Plan Steps", lack of a repro comment (since CodePath told me not to post the repro comment into the issue thread), procedure missing `scope.md`, and dealing with unanswered questions.
+- Difficulties: Misordered steps. This tool is checked in step 6, but needs test plan, which is filled in step 8. Complains about whether floating docks should be included whilst cycling focus.
+- What changed: Moved the Z-Matrix Editor to out of scope, added a test plan, an AI line. Updated `references/evidence-guide.md, procedure.md, and rubric.md` and added `check-note.md` to document changes. Found out that floating docks aren't feasible for the visible panes in question, so added a condition that the panes must not be floating under Proposed Solution Step 1.
 
 ---
 

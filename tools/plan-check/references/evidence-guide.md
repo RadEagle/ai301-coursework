@@ -36,8 +36,8 @@ ignore it. -->
 |---|---|---|
 | Diagnosis | In "Candidate plan", look for the issue in the "Diagnosis" or "Cause" line. | In the working directory's `plan.md`, look for the issue in the "Diagnosis" or "Cause" line. |
 | Issue behavior | In "Issue", look for the current behavior. | In the linked issue's body, look for the current behavior. |
-| Expected behavior | In "Repro evidence", look for the behavior listed in the "Expected" line. | In the reproduction steps commented in the linked issue, look for the behavior listed in the "Expected" line. |
-| Actual behavior | In "Repro evidence", look for the behavior listed in the "Actual" line. | In the reproduction steps commented in the linked issue, look for the behavior listed in the "Actual" line. |
+| Expected behavior | In "Repro evidence", look for the behavior listed in the "Expected" line. | In the reproduction steps commented in the linked issue, look for the behavior listed in the "Expected" line. If no repro report is posted in the issue, use a local file like `repro-draft.md` instead. |
+| Actual behavior | In "Repro evidence", look for the behavior listed in the "Actual" line. | In the reproduction steps commented in the linked issue, look for the behavior listed in the "Actual" line. If no repro report is posted in the issue, use a local file like `repro-draft.md` instead. |
 
 ## Scope
 
@@ -50,6 +50,7 @@ looks like next to a drive-by rewrite. -->
 | Files in-scope | In "Candidate plan", look for any files that will be changed | In the working directory's `plan.md`, look for any files that will be changed |
 | Files out-of-scope | In "Candidate plan", look for any files that will not be changed | In the working directory's `plan.md`, look for any files that will not be changed |
 | Features out-of-scope | In "Candidate plan", look for any features that will not be changed | In the working directory's `plan.md`, look for any features that will not be changed |
+| Unsolvable comment | In "Thread Highlights", look for a comment that states the issue is unsolvable | In the issue's thread, find any comments from the maintainer or contributors that mention that the issue is unsolvable |
 
 ## Executability
 
@@ -59,7 +60,7 @@ start executing without asking the author anything. -->
 
 | Signal | In the eval bundle | On github.com |
 |---|---|---|
-| Plan steps | In "Candidate plan", look for a list of instructions on how a stranger can test the fix | In the working directory's `plan.md`, look for a list of instructions on how a stranger can test the fix |
+| Test steps | In "Candidate plan", look for a list of instructions on how a stranger can test the fix | In the working directory's `plan.md`, look for a list of instructions on how a stranger can test the fix |
 | Issue files | In "Issue", look for any files called out | In the linked issue's body, look for any files called out |
 | Repro evidence files | In "Repro evidence", look for any files called out | In the reproduction steps commented in the linked issue, look for any files called out |
 
@@ -73,6 +74,7 @@ test plan names that a vague one does not. -->
 |---|---|---|
 | Test plan | In "Candidate plan", look for a test plan in the "Test" line | In the working directory's `plan.md`, look for a test plan in the "Test" line |
 | Expected outcome | In "Candidate plan", look for an outcome described in the "Test" line | In the working directory's `plan.md`, look for an outcome described in the "Test" line |
+| Unanswered questions | In "Thread Highlights", look for any comment that poses a question that is left unanswered. | In the issue's thread, look for any comment that poses a question that is left unanswered. |
 
 ## Honesty
 
@@ -96,7 +98,7 @@ boilerplate. -->
 | Signal | In the eval bundle | On github.com |
 |---|---|---|
 | Contribution policy | the "contribution policy" line under Repo facts                                | CONTRIBUTING.md in the repo root or .github/, and any contributor docs it links out to; the policy often hides one click away from the repo | 
-| Claim AI disclosure | In "Candidate claim comment," find a sentence that explicitly calls out AI use | In the user provided file, under "Claim comment," find a sentence that explicitly calls out AI use                                          | 
+| Claim AI disclosure | In "Candidate claim comment," or "Candidate plan", find a sentence that explicitly calls out AI use | In the user provided file, under "Claim comment," or under the plan file like `plan.md` find a sentence that explicitly calls out AI use                                          | 
 | Thread highlights | In "Thread Highlights", see comments posted by a collaborator or maintainer | In the linked issue, see comments posted by either the repo owner or the contributor or the maintainer |
-| Plan comment | In "Plan comment" | In the working directory's `comment.md` |
+| Plan comment | In "Plan comment" | In the working directory's `comment.md` or `plan-comment.md` |
 
