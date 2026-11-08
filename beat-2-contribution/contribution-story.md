@@ -162,11 +162,6 @@ Two files inside the `avogadro` folder are affected:
 
 **Environment Setup**
 
-[What a stranger would need to stand this up: your operating system,
-the relevant versions (language, runtime, package manager, the project
-itself), and how you set the project up. Then the challenges you faced
-and how you solved them, or that none came up.]
-
 I'm using the latest version (2.1.0, 77e13db) on Windows (WSL). I followed the setup instructions according to its [development guide](https://avogadro.cc/develop/build.html#develop-build) using a Cursor terminal and had its AI help me install the missing libraries and submodules as I haven't contributed in C++ before. The only challenge with setting this up is that the build took hours to finish, though after that any subsequent updates to the core libraries takes about 10 minutes to build. During the build I spent my time working on other tasks and catching up on my free time while waiting for the build to finish.
 
 ### Setup Instructions
@@ -332,11 +327,6 @@ The new code will be LLM generated according to the plan I wrote above, but I wi
 
 ## Testing Strategy
 
-[What observable checks prove the fix: your reproduction steps re-run
-against the built change (before and after), and the repo's own test
-suite or checks with the outcome shown. "Tests pass" with nothing
-observable named is not a strategy.]
-
 Since the issue I picked is a feature request for accessibility, there is no way to tell in the terminal if the feature is fixed or not. I will provide video evidence of the behavior before and after to show that the fix works as expected.
 
 In addition, there are no tests associated with the accessibility shortcuts in this repository, so I will be skipping them.
@@ -351,9 +341,6 @@ In addition, there are no tests associated with the accessibility shortcuts in t
 ---
 
 ## Implementation Notes
-
-[A running log, added to as you work. Date each entry. What you
-built, decisions you made when you made them, wrong turns included.]
 
 **11/4/26**
 
@@ -428,10 +415,5 @@ Next time I contribute to open-source, when I have a question, I should have run
 ---
 
 ## Resources Used
-
-[What actually helped, not a reading list. List things this story
-already shows you using: the doc you followed to set the environment
-up, the thread that explained the bug, the person who answered you.
-One real entry beats ten plausible ones.]
 
 - Official Build Documentation: https://avogadro.cc/develop/build.html#develop-build
