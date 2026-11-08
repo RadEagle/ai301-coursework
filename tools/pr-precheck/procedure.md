@@ -42,7 +42,7 @@ against plan scope, claimed evidence against the plan's test plan and
 the repo's checks, description claims against diff contents. A
 complete procedure leaves no check whose evidence an executor would
 have to hunt for. -->
-Read `references/evidence-guide.md` for instructions on how to gather said evidence. You will use this guidance when evaulating each check in `rubric.md`. When gathering repro-evidence in live-mode, look for comments made in the file `beat-1-sandbox/unit-2/reproduction.md`.
+Read `references/evidence-guide.md` for instructions on how to gather said evidence. You will use this guidance when evaulating each check in `rubric.md`. When gathering repro-evidence in live-mode, look for comments made in the file `repro-draft.md`, if provided.
 
 ## Check execution
 
@@ -65,3 +65,5 @@ you, so write the rule down. A complete procedure produces the same
 verdict from the same grades, every time. -->
 Apply the rubric's verdict rule to produce the final verdict:
 `accept` (ready to post) or `reject` (hold). No third verdict exists.
+
+For rejected packages, state any failing checks.

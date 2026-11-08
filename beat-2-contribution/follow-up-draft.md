@@ -1,0 +1,3 @@
+Never mind, I found that the "Z-Matrix Editor" lives in a plugin and is thus out-of-scope for this issue. If the new `F6` shortcut should include the Z-Matrix Editor to be part of the focus cycle, let me know and we can open up a new issue to also include the Z-Matrix Editor in the focus cycle as well.
+
+I'll open a PR that adds the F6 / Shift+F6 shortcuts in `avogadro/mainwindow.cpp` and `mainwindow.h`, and I'll include the implementation plan in the PR description.

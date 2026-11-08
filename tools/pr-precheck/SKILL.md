@@ -61,8 +61,8 @@ and every check runs with the full verdict rule. -->
   is what the drafts contain and quote, not other files in the
   student's working directory.
 - **Eval mode**: a package bundle (a markdown file containing the
-  issue context, a repo-facts block, a repro-evidence block, the
-  candidate plan, and the candidate plan comment). Use ONLY the bundle
+  issue context, a repo-facts block, the candidate plan, diffs, 
+  test evidence, and the pull request draft). Use ONLY the bundle
   text as evidence. Do not fetch anything; the bundle is the whole
   world. Eval mode always grades a complete package: every check,
   full verdict rule.
@@ -93,7 +93,7 @@ ignores it entirely. -->
 
 In live mode, also read `voice-guide.md`: the student's own rules for
 how they write upstream, with wrong/right examples. Check the draft
-plan comment against those rules and report any rule the draft breaks
+pull request against those rules and report any rule the draft breaks
 in the summary, quoting the rule. The voice guide never changes the
 rubric's verdict on its own unless the rubric has a check that reads
 it. In eval mode, ignore `voice-guide.md` entirely: voice is personal
@@ -114,10 +114,9 @@ instruction). -->
 references/evidence-guide.md maps where each evidence family lives, 
 procedure.md is executed as written. 
 
-Say what the tool does when the procedure is silent on a step (report the
-gap, never improvise around it) and what it does when rubric.md or
-procedure.md has no content (the refusal rule, stated as an
-instruction).
+If the procedure is silent on a step, report the gap and don't improvise
+around it. When `rubric.md` or `procedure.md` has no content, stop the
+skill early and tell the user to fill in the contents of the empty files.
 
 ## Verdict and output
 

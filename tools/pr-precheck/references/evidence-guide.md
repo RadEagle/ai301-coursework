@@ -84,7 +84,7 @@ looks like next to boilerplate or a visibly ignored ask. (Whether
 the description's claims match the diff is plan fidelity, above.) -->
 
 | Signal | On github.com | In the eval |
-| PR template | In the repo, under `.github/PULL_REQUEST_TEMPLATE.md` | The "pull requests" line under Repo facts |
+| PR template | In the repo, under `.github/PULL_REQUEST_TEMPLATE.md` or `.github/PULL_REQUEST_TEMPLATE` | The "pull requests" line under Repo facts |
 | Candidate PR | In `pr_draft.md` | In Candidate PR, read the whole thing |
 | AI contributing | CONTRIBUTING.md in the repo root or .github/, and any contributor docs it links out to; the policy often hides one click away from the repo | The "contribution policy" line under Repo facts |
 | AI acknowledgement | In `pr_draft.md`, in the description, find any callouts about AI use. | In the candidate PR, under description, see a line calling out the AI policy |
