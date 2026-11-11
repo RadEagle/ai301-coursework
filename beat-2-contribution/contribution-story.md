@@ -369,9 +369,10 @@ I forgot the case when it comes to reordering panes and when I used F6, it cycle
 
 **Maintainer Feedback:**
 
-- 11/7/2026: none yet.
+- 11/10/2026: maintainer said he can approve the change as is.
+- 11/11/2026: merged my changes to main.
 
-**Status:** Awaiting review.
+**Status:** Merged.
 
 **Toolkit**
 
