@@ -1,7 +1,7 @@
 # Writing a Plan to Implement Accessibility Shortcuts
 
 ## Overview
-The tool I will talk about is the `plan-check` AI skill. This tool is used to check that your implementation plan is sound before you write your first line of code. I first calibrated its rubric using examples gathered from CodePath, and then applied it to my working plan to implement an accessibility feature. After some back-and-forth discussions, I eventually carried out the plan that got its pull request merged to the main branch on the first round.
+The tool I will talk about is the `plan-check` AI skill. This tool is used to check that your implementation plan is sound before you write your first line of code. I first calibrated its rubric using examples gathered from CodePath, and then applied it to my working plan to implement an accessibility feature. After some back-and-forth discussions, I eventually carried out the plan that got its pull request [(#910)](https://github.com/OpenChemistry/avogadroapp/pull/931) merged to the main branch on the first round.
 
 ## What happened
 It all started back in October 2nd, when I read the [eval-package](https://github.com/codepath/ai301-unit3-starter/tree/main/eval/packages) and constructed my `plan-check` tool, including `procedure.md`, `references/evidence-guide.md`, and `rubric.md`. I then ran this tool against the eval-package and got 19/20 verdicts correct. [1](https://github.com/RadEagle/ai301-coursework/blob/main/beat-1-sandbox/unit-3/eval-run.txt). Since I got a passing score, it is ready for the live version.
