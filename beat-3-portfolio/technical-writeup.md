@@ -6,11 +6,14 @@ The tool I will talk about is the `plan-check` AI skill. This tool is used to ch
 ## What happened
 It all started back in October 2nd, when I read the [eval-package](https://github.com/codepath/ai301-unit3-starter/tree/main/eval/packages) and constructed my `plan-check` tool, including `procedure.md`, `references/evidence-guide.md`, and `rubric.md`. I then ran this tool against the eval-package and got 19/20 verdicts correct. [1](https://github.com/RadEagle/ai301-coursework/blob/main/beat-1-sandbox/unit-3/eval-run.txt). Since I got a passing score, it is ready for the live version.
 
-The [issue](https://github.com/OpenChemistry/avogadroapp/issues/910) where my plan will be checked against the `plan-check` tool involves a feature request to implement two accessibility shortcuts to quickly cycle focus between visible panes. After verifying such shortcuts do not exist and writing a plan to add said feature, running `plan-check` caught many issues, including a lack of a test plan, lack of an AI line, and unanswered questions on whether to make an extra visible pane (the Z-Matrix Editor) in scope. [2](https://github.com/RadEagle/ai301-coursework/blob/main/beat-2-contribution/contribution-story.md) 
+The [issue](https://github.com/OpenChemistry/avogadroapp/issues/910) where my plan will be checked against the `plan-check` tool involves a feature request to implement two accessibility shortcuts to quickly cycle focus between visible panes. 
+
+On October 30th, after verifying such shortcuts do not exist and writing a plan to add said feature, running `plan-check` caught many issues, including a lack of a test plan, lack of an AI line, and unanswered questions on whether to make an extra visible pane (the Z-Matrix Editor) in scope. [2](https://github.com/RadEagle/ai301-coursework/blob/main/beat-2-contribution/contribution-story.md) 
 > What it produced: reject due to unanswered questions, lack of a test plan, and lack of an AI line. Lots of rubric gaps that unit 3 did not account for, including evidence guide comment file name, ambiguity of "Plan Steps", lack of a repro comment..., procedure missing `scope.md`, and dealing with unanswered questions.
 
-After a few days with the maintainer unable to respond, I came to the conclusion that the Z-Matrix Editor will be out of scope as it lives in a plugin elsewhere in the code.
+After a few days with the maintainer unable to respond, on November 4th, I came to the conclusion that the Z-Matrix Editor will be out of scope as it lives in a plugin elsewhere in the code.
 
+The rest of the story explains the events of what happened on November 4th.
 Claude also listed gaps in the tool itself, to which I later updated to ensure consistency. [3](https://github.com/RadEagle/ai301-coursework/blob/main/tools/plan-check/check-notes.md) 
 > The evidence guide puts the plan comment in `comment.md`, but your file is `plan-comment.md`... The procedure never says to check `scope.md` rules... The rubric doesn't say how to treat a plan that depends on an unanswered question on the thread.
 
