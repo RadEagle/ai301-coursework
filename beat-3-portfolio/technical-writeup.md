@@ -1,4 +1,4 @@
-# Writing a Plan to Implement Accessibility Shortcuts
+# Writing a Plan to Implement Accessibility Shortcuts to Avogadroapp
 
 ## Overview
 The tool I will talk about is the `plan-check` AI skill. This tool is used to check that your implementation plan is sound before you write your first line of code. I first calibrated its rubric using examples gathered from CodePath, and then applied it to my working plan to implement an accessibility feature. After some back-and-forth discussions, I eventually carried out the plan that got its pull request ([#931](https://github.com/OpenChemistry/avogadroapp/pull/931)) merged to the main branch on the first round.
